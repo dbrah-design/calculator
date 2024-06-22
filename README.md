@@ -1,1 +1,1 @@
-# calculator
+The goal of this calculator project is to take all I have learned from the fundamentals course and apply it to complete this final project for the course.

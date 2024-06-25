@@ -21,3 +21,13 @@ function divideNums(num1,num2) {
 }
 
 console.log(divideNums(8,2));
+
+function operate() {
+  const num = 1;
+  const num2 = 2;
+  const operator = multiplyNums(num,num2);
+
+  return operator;
+}
+
+console.log(operate());

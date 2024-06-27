@@ -31,3 +31,13 @@ function operate() {
 }
 
 console.log(operate());
+
+const calculatorBtn = document.querySelector(".calculator-button");
+const displayCalculation = document.querySelector(".display-calculation");
+
+
+function displayValue() {
+  displayCalculation.textContent = calculatorBtn.textContent;
+}
+
+calculatorBtn.addEventListener("click",displayValue);

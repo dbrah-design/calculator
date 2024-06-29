@@ -33,11 +33,11 @@ function operate() {
 console.log(operate());
 
 const calculatorBtn = document.querySelector(".calculator-button");
-const displayCalculation = document.querySelector(".display-calculation");
+const displayCalc = document.querySelector(".display-calculation");
 
 
-function displayValue() {
-  displayCalculation.textContent = calculatorBtn.textContent;
+function displayCalculation() {
+  displayCalc.textContent = calculatorBtn.textContent;
 }
 
-calculatorBtn.addEventListener("click",displayValue);
+calculatorBtn.addEventListener("click",displayCalculation);

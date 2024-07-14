@@ -1,3 +1,9 @@
+const calculatorBtn = document.querySelectorAll(".calculator-button");
+const displayCalc = document.querySelector(".display-calculation");
+const equalSign = document.querySelector(".equal-sign");
+
+
+
 function addNums(num1,num2) {
   return num1 + num2;
 }
@@ -32,12 +38,5 @@ function operate() {
 
 console.log(operate());
 
-const calculatorBtn = document.querySelector(".calculator-button");
-const displayCalc = document.querySelector(".display-calculation");
 
 
-function displayCalculation() {
-  displayCalc.textContent = calculatorBtn.textContent;
-}
-
-calculatorBtn.addEventListener("click",displayCalculation);

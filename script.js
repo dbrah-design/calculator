@@ -30,11 +30,19 @@ calculatorBtn.forEach((button) => {
 })
 
 function operate() {
-  const num = 1;
-  const num2 = 2;
-  const operator = multiplyNums(num,num2);
 
-  return operator;
+  const numbers = calculation.match(/\d+/g);
+  let num1 = Number(numbers[0]);
+  let num2 = Number(numbers[1]);
+  if(calculation.includes("+")) {
+    return console.log(addNums(num1,num2));
+  } else if(calculation.includes("-")) {
+    return console.log(subtractNums(num1,num2));
+  } else if(calculation.includes("*")) {
+    return console.log(multiplyNums(num1,num2));
+  } else if(calculation.includes("/")) {
+    return console.log(divideNums(num1,num2));
+  }
 }
 
 equalSign.addEventListener("click",operate)

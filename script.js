@@ -20,9 +20,12 @@ function divideNums(num1,num2) {
   return num1 / num2;
 }
 
+let calculation = "";
+
 calculatorBtn.forEach((button) => {
   button.addEventListener("click", () => {
-    console.log(button.value);
+   calculation += button.value;
+   console.log(calculation);
   })
 })
 
@@ -33,6 +36,8 @@ function operate() {
 
   return operator;
 }
+
+equalSign.addEventListener("click",operate)
 
 
 

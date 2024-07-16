@@ -25,7 +25,7 @@ let calculation = "";
 calculatorBtn.forEach((button) => {
   button.addEventListener("click", () => {
    calculation += button.value;
-   console.log(calculation);
+   displayCalc.textContent = calculation;
   })
 })
 
@@ -49,7 +49,7 @@ function operate() {
     calculation = "";
   }
 
-  return console.log(result);
+  return displayCalc.textContent = result;
 }
 
 equalSign.addEventListener("click",operate)

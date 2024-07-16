@@ -37,12 +37,16 @@ function operate() {
   let result;
   if(calculation.includes("+")) {
     result = addNums(num1,num2);
+    calculation = "";
   } else if(calculation.includes("-")) {
     result = subtractNums(num1,num2);
+    calculation = "";
   } else if(calculation.includes("*")) {
     result = multiplyNums(num1,num2);
+    calculation = "";
   } else if(calculation.includes("/")) {
     result = divideNums(num1,num2);
+    calculation = "";
   }
 
   return console.log(result);

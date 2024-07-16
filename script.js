@@ -34,15 +34,18 @@ function operate() {
   const numbers = calculation.match(/\d+/g);
   let num1 = Number(numbers[0]);
   let num2 = Number(numbers[1]);
+  let result;
   if(calculation.includes("+")) {
-    return console.log(addNums(num1,num2));
+    result = addNums(num1,num2);
   } else if(calculation.includes("-")) {
-    return console.log(subtractNums(num1,num2));
+    result = subtractNums(num1,num2);
   } else if(calculation.includes("*")) {
-    return console.log(multiplyNums(num1,num2));
+    result = multiplyNums(num1,num2);
   } else if(calculation.includes("/")) {
-    return console.log(divideNums(num1,num2));
+    result = divideNums(num1,num2);
   }
+
+  return console.log(result);
 }
 
 equalSign.addEventListener("click",operate)

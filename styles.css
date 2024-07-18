@@ -1,3 +1,16 @@
+body {
+  font-family: Arial;
+  background-color: rgb(0, 0, 0);
+}
+
+.calculation {
+  color: white;
+  font-size: 45px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+
 .calculator-button,.equal-sign, .clear-button {
   height: 60px;
   width: 60px;

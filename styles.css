@@ -12,10 +12,11 @@ body {
   font-size: 45px;
   margin-top: 15px;
   margin-bottom: 5px;
+  text-align: right;
 }
 
 
-.calculator-button,.equal-sign, .clear-button {
+.calculator-button,.equal-btn, .clear-button {
   height: 60px;
   width: 60px;
   border-radius: 60px;

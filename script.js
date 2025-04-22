@@ -1,7 +1,8 @@
-const calculatorBtn = document.querySelectorAll(".calculator-button");
+const numberBtn = document.querySelectorAll(".js-number-btn");
+const operatorBtn = document.querySelectorAll(".js-operator-btn");
 const displayCalc = document.querySelector(".display-calculation");
-const equalSign = document.querySelector(".equal-sign");
-
+const equalBtn = document.querySelector(".js-equal-btn");
+const clearBtn = document.querySelector(".js-clear-btn");
 
 
 function addNums(num1,num2) {
@@ -20,40 +21,79 @@ function divideNums(num1,num2) {
   return num1 / num2;
 }
 
-let calculation = "";
+let currentInput = '';
+let currentOperation = '';
+let previousInput = '';
 
-calculatorBtn.forEach((button) => {
+
+function appendNumber(number) {
+  currentInput += number;
+  displayCalc.textContent = `${previousInput} ${currentOperation} ${currentInput}`;
+}
+
+function appendOperation(operation) {
+  if(currentInput === '') return;
+  if(previousInput !== '') {
+    operate();
+  }
+  currentOperation = operation;
+  previousInput = currentInput;
+  currentInput = '';
+  displayCalc.textContent = `${previousInput} ${currentOperation}`;
+}
+
+numberBtn.forEach((button) => {
   button.addEventListener("click", () => {
-   calculation += button.value;
-   displayCalc.textContent = calculation;
+   appendNumber(button.value);
+  })
+});
+
+operatorBtn.forEach((button) => {
+  button.addEventListener("click", () => {
+    appendOperation(button.value);
   })
 })
 
 function operate() {
 
-  const numbers = calculation.match(/\d+/g);
-  let num1 = Number(numbers[0]);
-  let num2 = Number(numbers[1]);
+  if(previousInput === '' || currentInput === '') return;
   let result;
-  if(calculation.includes("+")) {
-    result = addNums(num1,num2);
-    calculation = "";
-  } else if(calculation.includes("-")) {
-    result = subtractNums(num1,num2);
-    calculation = "";
-  } else if(calculation.includes("*")) {
-    result = multiplyNums(num1,num2);
-    calculation = "";
-  } else if(calculation.includes("/")) {
-    result = divideNums(num1,num2);
-    calculation = "";
-  }
+  let prev = parseFloat(previousInput);
+  let current = parseFloat(currentInput);
+  
+  if(currentOperation === '+') {
+    result = addNums(prev,current);
+   
+  } else if(currentOperation === '-') {
+    result = subtractNums(prev,current);
 
-  return displayCalc.textContent = result;
+  } else if(currentOperation === '*') {
+    result = multiplyNums(prev,current);
+
+  } else if(currentOperation === '/') {
+    if(current === 0) {
+      alert("Cannot divide by zero");
+      return;
+    }
+    result = divideNums(prev,current);
+
+  } else {
+    return;
+  }
+  
+  currentInput = result.toString();
+  currentOperation = '';
+  previousInput = '';
+  displayCalc.textContent = currentInput.length > 4 ? currentInput.slice(0,4) : currentInput;
+  
 }
 
-equalSign.addEventListener("click",operate)
+function clearDisplay() {
+  currentInput = '';
+  previousInput = '';
+  currentOperation = '';
+  displayCalc.textContent = '0';
+}
 
-
-
-
+clearBtn.addEventListener("click", clearDisplay);
+equalBtn.addEventListener("click",operate);
